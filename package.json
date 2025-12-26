@@ -20,8 +20,7 @@
     "@cap-js/cds-typer": ">=0.1"
   },
   "scripts": {
-    "start": "cds-serve",
-    "watch-bookstore-listview": "cds watch --open bookstorelistview/index.html?sap-ui-xx-viewCache=false --livereload false"
+    "start": "cds-serve"
   },
   "workspaces": [
     "app/*"
