@@ -15,7 +15,11 @@ module.exports = class BookstoreService extends cds.ApplicationService {
     this.on('changePublishDate', Books, async (req) => {
       const bookId = req.params[0].ID
       const newDate = req.data.newDate
-      await UPDATE(Books)
+      
+      // Handle both draft and active entities
+      const entity = req.params[0].IsActiveEntity === false ? Books.drafts : Books
+      
+      await UPDATE(entity)
         .set({ publishedAt: newDate })
         .where({ ID: bookId })
     })
